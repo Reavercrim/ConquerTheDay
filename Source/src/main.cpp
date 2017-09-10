@@ -12,11 +12,11 @@ int main()
     sf::RenderWindow window(sf::VideoMode(480, 480), "CTD");
     AssetManager manager;
     
-    Weapon *w(nullptr);
-    w = new Sword;
+    /*Weapon *w(nullptr);
+    w = new Sword;*/
     
-    std::cout << w->primary().damage <<std::endl;
-    std::cout << w->secondary().damage <<std::endl;
+    /*std::cout << w->primary().damage <<std::endl;
+    std::cout << w->secondary().damage <<std::endl;*/
     
     const int level[] =
     {
@@ -80,11 +80,11 @@ int main()
 
 
 	HealthBar hp(1,256,0);
-	HealthBar hp1(4,256,1);
+	/*HealthBar hp1(4,256,1);
 	HealthBar hp2(64,256,2);
 	HealthBar hp3(128,256,3);
 	HealthBar hp4(192,256,4);
-	HealthBar hp5(256,256,5);
+	HealthBar hp5(256,256,5);*/
 	
 
     while (window.isOpen())
@@ -147,14 +147,14 @@ int main()
         }
         
         window.clear(sf::Color::Black);
-        //window.draw(map);
+        window.draw(map);
         window.draw(sprite);
         window.draw(hp);
-        window.draw(hp1);
+        /*window.draw(hp1);
         window.draw(hp2);
         window.draw(hp3);
         window.draw(hp4);
-        window.draw(hp5);
+        window.draw(hp5);*/
         window.display();
     }
 

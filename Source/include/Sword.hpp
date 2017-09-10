@@ -1,6 +1,11 @@
 #ifndef SWORD_HPP
 #define SWORD_HPP
 
+#include <SFML/Graphics.hpp>
+#include <string>
+#include <vector>
+#include "Weapon.hpp"
+
 class Sword : public Weapon
 {
 	public:

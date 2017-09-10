@@ -1,7 +1,3 @@
-#include <SFML/Graphics.hpp>
-#include <string>
-#include <vector>
-#include "Weapon.hpp"
 #include "Sword.hpp"
 
 Sword::Sword()

@@ -1,9 +1,8 @@
-#include <string>
 #include "Creature.hpp"
 
 //constructor
 //---------------------------
-Creature::Creature()
+Creature::Creature():m_Status(Status::FREE)
 {
 	
 }
@@ -13,6 +12,11 @@ Creature::Creature()
 std::string Creature::getName()
 {
 	return this->m_Name;
+}
+
+int Creature::getCurrentHealth()
+{
+	return m_CurrentHealth;
 }
 
 int Creature::getConstitution()
@@ -30,11 +34,30 @@ int Creature::getAgility()
 	return this->m_Agility;
 }
 
+Status Creature::getStatus()
+{
+	return this->m_Status;
+}
+
+
 //setter
 //-------------------------------------
 void Creature::setName(std::string name)
 {
 	this->m_Name = name;
+}
+
+void Creature::setCurrentHealth(int health)
+{
+	if (health < 0)
+	{
+		this->m_CurrentHealth = 0;
+		Creature::setStatus(Status::FREE);
+	}
+	else
+	{
+		this->m_CurrentHealth = health;
+	}
 }
 
 void Creature::setConstitution(int constitution)
@@ -50,5 +73,10 @@ void Creature::setStrength(int strength)
 void Creature::setAgility(int agility)
 {
 	this->m_Agility = agility;
+}
+
+void Creature::setStatus(Status status)
+{
+	this->m_Status = status;
 }
 
