@@ -1,8 +1,8 @@
-#include "Sword.hpp"
+#include "sword.hpp"
 
 Sword::Sword()
 {
-	
+
 }
 
 w_Modifier Sword::primary()

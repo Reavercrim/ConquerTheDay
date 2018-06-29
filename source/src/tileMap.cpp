@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
-#include "TileMap.hpp"
-#include "AssetManager.hpp"
+#include "tileMap.hpp"
+#include "assetManager.hpp"
 
 bool TileMap::load(const std::string& tileset, sf::Vector2u tileSize,
 				   const int* tiles, unsigned int width,

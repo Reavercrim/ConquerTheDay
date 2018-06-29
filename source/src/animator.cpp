@@ -1,6 +1,6 @@
-#include "Animator.hpp"
-#include "Animation.hpp"
-#include "AssetManager.hpp"
+#include "animator.hpp"
+#include "animation.hpp"
+#include "assetManager.hpp"
 
 Animator::Animator(sf::Sprite& sprite)
 	:m_Sprite(sprite), m_CurrentTime(), m_CurrentAnimation(nullptr)

@@ -1,10 +1,10 @@
-#include "Creature.hpp"
+#include "creature.hpp"
 
-//constructor
+/*//constructor
 //---------------------------
 Creature::Creature():m_Status(Status::FREE)
 {
-	
+
 }
 
 //getter
@@ -78,5 +78,4 @@ void Creature::setAgility(int agility)
 void Creature::setStatus(Status status)
 {
 	this->m_Status = status;
-}
-
+}*/

@@ -1,0 +1,10 @@
+#ifndef SLOTTYPE_HPP
+#define SLOTTYPE_HPP
+
+enum class ArmorSlotType
+{
+	HEAD,SHOULDERS,CHEST,ARMS,HANDS,LEGS,FEET
+};
+
+
+#endif //SLOTTYPE_HPP

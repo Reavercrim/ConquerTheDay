@@ -1,11 +1,11 @@
 #include <SFML/Graphics.hpp>
 #include <string>
-#include "Weapon.hpp"
+#include "weapon.hpp"
 
 
 Weapon::Weapon()
 {
-	
+
 }
 
 void Weapon::setName(std::string name)
@@ -29,4 +29,3 @@ w_Modifier Weapon::secondary()
 	w_Modifier init = {0,0,sf::Vector2f(0,0),0};
 	return init;
 }
-

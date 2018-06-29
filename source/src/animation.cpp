@@ -3,7 +3,7 @@
 
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
-#include "Animation.hpp"
+#include "animation.hpp"
 
 
 Animation::Animation(std::string const& name, std::string const& textureName,
@@ -49,4 +49,3 @@ void Animation::addFrames(sf::Vector2i const& startFrom,
 		current.x += frameSize.x;
 	}
 }
-

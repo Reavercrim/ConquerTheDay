@@ -1,11 +1,11 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "AssetManager.hpp"
-#include "TileMap.hpp"
-#include "Animator.hpp"
-#include "HealthBar.hpp"
-#include "Weapon.hpp"
-#include "Sword.hpp"
+#include "assetManager.hpp"
+#include "tileMap.hpp"
+#include "animator.hpp"
+#include "healthBar.hpp"
+#include "weapon.hpp"
+#include "sword.hpp"
 
 int main()
 {
@@ -108,6 +108,15 @@ int main()
         animator.Update(deltaTime);
 
         float dt = deltaTime.asSeconds();
+
+        if (sf::Joystick::isConnected(0))
+        {
+            if (sf::Joystick::isButtonPressed(0, 1))
+            {
+                
+            }
+        }
+
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 		{

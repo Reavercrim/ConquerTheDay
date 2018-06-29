@@ -4,7 +4,7 @@
 #include <list>
 #include <string>
 #include <SFML/Graphics.hpp>
-#include "Animation.hpp"
+#include "animation.hpp"
 
 class Animator
 {
@@ -22,8 +22,8 @@ public:
 	bool SwitchAnimation(std::string const& name);
 
 	std::string GetCurrentAnimationName() const;
-	
-	
+
+
 
 private:
 	//Returns the animation with the passed name

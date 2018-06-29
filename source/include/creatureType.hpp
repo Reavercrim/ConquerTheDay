@@ -1,0 +1,10 @@
+#ifndef CREATURETYPE_HPP
+#define CREATURETYPE_HPP
+
+enum class CreatureType
+{
+	HUMAN,CENTAURE,DWARF,ELF,GIANT
+};
+
+
+#endif //CREATURETYPE_HPP
