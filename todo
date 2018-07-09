@@ -1,4 +1,13 @@
-base stats
-+ mod Creature
-+ mod buff
-+ mod skill
+race
+- specific SLOT
+- specific TRAIT
+
+trait
+- permanent bonus(stat or ability)
+
+
+SLOT
+
+map
+    head
+    arm
