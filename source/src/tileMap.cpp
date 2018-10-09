@@ -3,7 +3,7 @@
 #include "assetManager.hpp"
 
 bool TileMap::load(const std::string& tileset, sf::Vector2u tileSize,
-				   const int* tiles, unsigned int width,
+				   int* tiles, unsigned int width,
 				   unsigned int height)
 {
 // on charge la texture du tileset
