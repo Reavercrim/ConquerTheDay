@@ -3,9 +3,10 @@
 #include "assetManager.hpp"
 
 bool TileMap::load(const std::string& tileset, sf::Vector2u tileSize,
-				   int* tiles, unsigned int width,
+				   uint16_t* tiles, unsigned int width,
 				   unsigned int height)
 {
+
 // on charge la texture du tileset
 	m_tileset = AssetManager::GetTexture(tileset);
 

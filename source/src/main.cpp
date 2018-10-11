@@ -1,13 +1,14 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <sstream>
 #include <vector>
-#include "serialization.hpp"
 #include "assetManager.hpp"
 #include "tileMap.hpp"
 #include "animator.hpp"
 #include "healthBar.hpp"
 #include "weapon.hpp"
 #include "sword.hpp"
+#include "chunk.hpp"
 
 int main()
 {
@@ -20,8 +21,8 @@ int main()
     /*std::cout << w->primary().damage <<std::endl;
     std::cout << w->secondary().damage <<std::endl;*/
 
-    std::vector<int> v_test = {
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    std::vector<uint16_t> v_test = {
+    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,
@@ -35,17 +36,25 @@ int main()
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1};
 
-    std::cout << "serial: " << Serialization::tilemapToHex(v_test) << std::endl;
+    Chunk ch(15,v_test);
+    std::stringstream stream;
+    ch.serialize(stream);
+
+    std::cout << "stream " << stream.str() << std::endl;
+
+    Chunk ch2(stream);
 
 
 
-
-
+    /*for(int i=0;i<225;i++)
+        std::cout << "comp " << std::to_string(ch2.getTiles()[i]) << " : " << std::to_string(v_test.data()[i]) << std::endl;
+    */
+    
     // on crée la tilemap avec le niveau précédemment défini
     TileMap map;
-    if (!map.load("data/ressource/gt.png", sf::Vector2u(32, 32), v_test.data(), 15, 15))
+    if (!map.load("data/ressource/gt.png", sf::Vector2u(32, 32), ch2.getTiles().data(), 15, 15))
         return -1;
 
     sf::Vector2i spriteSize(256,64);
