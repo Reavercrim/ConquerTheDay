@@ -11,6 +11,7 @@ public:
 
     virtual void serialize(std::stringstream& stream) = 0;
     virtual void deserialize(std::stringstream& stream) = 0;
+    virtual void toFile(std::string path) = 0;
 };
 
 

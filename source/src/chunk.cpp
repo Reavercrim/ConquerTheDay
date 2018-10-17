@@ -1,5 +1,6 @@
 #include "chunk.hpp"
 #include <iostream>
+#include <fstream>
 #include <sstream>
 
 Chunk::Chunk(int size, std::vector<uint16_t> tiles):m_size(size),m_tiles(tiles)
@@ -66,5 +67,15 @@ void Chunk::deserialize(std::stringstream& stream)
 
 
     this->setTiles(tiles);
+
+}
+
+void Chunk::toFile(std::string path)
+{
+    std::ofstream outf(path);
+    std::stringstream stream;
+    this->serialize(stream);
+
+    outf << stream.str() << std::endl;
 
 }

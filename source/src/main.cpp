@@ -15,6 +15,8 @@ int main()
     sf::RenderWindow window(sf::VideoMode(480, 480), "CTD");
     AssetManager manager;
 
+    sf::View view(sf::FloatRect(0, 0, 480, 480));
+
     /*Weapon *w(nullptr);
     w = new Sword;*/
 
@@ -43,15 +45,12 @@ int main()
     ch.serialize(stream);
 
     std::cout << "stream " << stream.str() << std::endl;
+    ch.toFile("chunk.dat");
 
     Chunk ch2(stream);
 
 
 
-    /*for(int i=0;i<225;i++)
-        std::cout << "comp " << std::to_string(ch2.getTiles()[i]) << " : " << std::to_string(v_test.data()[i]) << std::endl;
-    */
-    
     // on crée la tilemap avec le niveau précédemment défini
     TileMap map;
     if (!map.load("data/ressource/gt.png", sf::Vector2u(32, 32), ch2.getTiles().data(), 15, 15))
@@ -137,26 +136,26 @@ int main()
 		{
 			if (animator.GetCurrentAnimationName() != "Up")
 				animator.SwitchAnimation("Up");
-			sprite.move(sf::Vector2f(0, -60*dt));
+			view.move(sf::Vector2f(0, -60*dt));
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 		{
 			if (animator.GetCurrentAnimationName() != "Down")
 				animator.SwitchAnimation("Down");
-			sprite.move(sf::Vector2f(0, 60*dt));
+			view.move(sf::Vector2f(0, 60*dt));
 		}
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{
 			if (animator.GetCurrentAnimationName() != "Left")
 				animator.SwitchAnimation("Left");
-			sprite.move(sf::Vector2f(-60*dt, 0));
+			view.move(sf::Vector2f(-60*dt, 0));
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		{
 			if (animator.GetCurrentAnimationName() != "Right")
 				animator.SwitchAnimation("Right");
-			sprite.move(sf::Vector2f(60*dt, 0));
+			view.move(sf::Vector2f(60*dt, 0));
 		}
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
@@ -169,6 +168,10 @@ int main()
 			if (animator.GetCurrentAnimationName() != "Idle")
 				animator.SwitchAnimation("Idle");
         }
+
+        sprite.setPosition(window.mapPixelToCoords(sf::Vector2i(240,240)));
+
+        window.setView(view);
 
         window.clear(sf::Color::Black);
         window.draw(map);

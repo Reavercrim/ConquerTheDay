@@ -22,6 +22,7 @@ public:
 
     virtual void serialize(std::stringstream& stream);
     virtual void deserialize(std::stringstream& stream);
+    virtual void toFile(std::string path);
 
 private:
     int m_size;
