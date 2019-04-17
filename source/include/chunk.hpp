@@ -13,6 +13,7 @@ class Chunk : public Serializable
 public:
     Chunk(int size,std::vector<uint16_t> tiles);
     Chunk(std::stringstream& stream);
+    Chunk(std::string path);
 
     int getSize();
     std::vector<uint16_t> &getTiles();
@@ -22,7 +23,8 @@ public:
 
     virtual void serialize(std::stringstream& stream);
     virtual void deserialize(std::stringstream& stream);
-    virtual void toFile(std::string path);
+    void toFile(std::string path);
+    void fromFile(std::string path);
 
 private:
     int m_size;

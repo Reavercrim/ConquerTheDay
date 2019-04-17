@@ -1,11 +1,11 @@
-# Root Makefile
+# Root Makefile-lsfml-network
 .SUFFIXES:
 
 # Var
 CC = g++
-CFLAGS = -Wall -std=c++11
+CFLAGS = -Wall
 
-LIB = -lsfml-graphics -lsfml-window -lsfml-system
+LIB = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-network
 
 BUILDDIR = build
 SRCDIR = source/src
@@ -14,14 +14,16 @@ SRCEXT = cpp
 TARGET = bin/ctd
 
 SOURCES = $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
+
+
 OBJECTS = $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
 
-INC = -I source/include
+INC = -Isource/include
 
 
 $(TARGET): $(OBJECTS)
 	@echo " Linking..."
-	@echo " $(CC) $^ -o $(TARGET) $(LIB)"; $(CC) $^ -o $(TARGET) $(LIB)
+	@echo " $(CC) $^ -o $(TARGET) $(LIB) "; $(CC) $^ -o $(TARGET) $(LIB)
 
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
@@ -39,4 +41,3 @@ run:
 	./bin/ctd
 
 .PHONY: clean
-

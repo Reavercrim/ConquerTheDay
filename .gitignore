@@ -1,7 +1,6 @@
-#ignore build folder
+#ignore folder
 build
+doc
 
 #ignore executable
 bin/*
-
-

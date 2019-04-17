@@ -13,6 +13,11 @@ Chunk::Chunk(std::stringstream& stream)
     this->deserialize(stream);
 }
 
+Chunk::Chunk(std::string path)
+{
+    this->fromFile(path);
+}
+
 int Chunk::getSize()
 {
     return this->m_size;
@@ -77,5 +82,17 @@ void Chunk::toFile(std::string path)
     this->serialize(stream);
 
     outf << stream.str() << std::endl;
+
+}
+
+void Chunk::fromFile(std::string path)
+{
+    std::ifstream inf(path);
+    std::stringstream stream;
+
+    if (inf.is_open())
+        stream << inf.rdbuf();
+
+    this->deserialize(stream);
 
 }
