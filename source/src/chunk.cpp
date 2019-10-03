@@ -15,7 +15,12 @@ Chunk::Chunk(std::stringstream& stream)
 
 Chunk::Chunk(std::string path)
 {
-    this->fromFile(path);
+    //this->fromFile(0,0);
+}
+
+Chunk::Chunk(int x, int y)
+{
+    this->fromFile(x,y);
 }
 
 int Chunk::getSize()
@@ -48,7 +53,6 @@ void Chunk::serialize(std::stringstream& stream)
         stream << " " << *it;
     }
 
-
 }
 
 void Chunk::deserialize(std::stringstream& stream)
@@ -70,9 +74,7 @@ void Chunk::deserialize(std::stringstream& stream)
         i++;
     }
 
-
     this->setTiles(tiles);
-
 }
 
 void Chunk::toFile(std::string path)
@@ -85,14 +87,19 @@ void Chunk::toFile(std::string path)
 
 }
 
-void Chunk::fromFile(std::string path)
+void Chunk::fromFile(int x, int y)
 {
-    std::ifstream inf(path);
-    std::stringstream stream;
+    m_tiles.reserve(32*32*2);
 
-    if (inf.is_open())
-        stream << inf.rdbuf();
+    char* p = reinterpret_cast<char*>(m_tiles.data());
 
-    this->deserialize(stream);
+    std::ifstream is("data/chunk/a.dat", std::ifstream::binary);
+
+    is.seekg((x+32*y)*32*32*2);
+
+    is.read(p,32*32*2);
+
+    is.close();
+    //is.close();
 
 }

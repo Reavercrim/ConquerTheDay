@@ -5,6 +5,8 @@
 #include "udpClient.hpp"
 #include "tileMap.hpp"
 #include "assetManager.hpp"
+#include "animator.hpp"
+#include "animation.hpp"
 
 class Game
 {
@@ -14,7 +16,7 @@ public:
 
 private:
     void processEvents();
-    void update();
+    void update(sf::Time timeSinceLastUpdate);
     void render();
 
     sf::RenderWindow m_window;
@@ -22,8 +24,9 @@ private:
     TileMap m_map;
     AssetManager m_manager;
     sf::View m_view;
-    sf::RectangleShape m_rect;
-
+    std::vector<sf::Sprite> m_player;
+    std::vector<Animator> m_animator;
+    sf::Uint16 m_playerIndex;
 
 };
 

@@ -9,6 +9,7 @@ class UdpClient
 public:
     UdpClient(std::string server_addr, int server_port);
     void send(sf::Packet & packet);
+    void sendInput(std::string input);
     sf::UdpSocket& getSocket();
     void connectToServer();
 
